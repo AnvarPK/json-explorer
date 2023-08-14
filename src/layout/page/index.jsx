@@ -1,8 +1,4 @@
-import {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined
-} from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Layout, Menu, theme } from 'antd';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Breadcrumbs } from '../../components';
@@ -26,8 +22,8 @@ const Page = (props) => {
 
     return (
         <Layout>
-            <Sider trigger={null} collapsible collapsed={collapsed}>
-                <div className="demo-logo-vertical" >
+            <Sider trigger={null}  collapsed={true}>
+                <div className="logo-vertical" >
                     LOGO
                 </div>
                 <Menu
@@ -45,18 +41,7 @@ const Page = (props) => {
                         padding: 0,
                         background: colorBgContainer,
                     }}
-                >
-                    <Button
-                        type="text"
-                        icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                        onClick={() => setCollapsed(!collapsed)}
-                        style={{
-                            fontSize: '16px',
-                            width: 64,
-                            height: 64,
-                        }}
-                    />
-                </Header>
+                />
                 <Content
                     style={{ padding: '0 25px', minHeight: 'calc( 100vh - 64px )' }}
                 >

@@ -3,27 +3,14 @@ import {
 } from '@ant-design/icons';
 import { Button, Space, Table } from 'antd';
 import React from 'react';
-
-const data = [
-    {
-        key: '1',
-        fileName: 'John',
-    },
-    {
-        key: '2',
-        fileName: 'John',
-    },
-    {
-        key: '3',
-        fileName: 'John',
-    },
-];
+import { useId } from 'react';
 
 const columns = [
     {
         title: 'No',
         dataIndex: 'key',
         rowScope: 'row',
+        render: (key) => key + 1,
     },
     {
         title: 'Fila Name',
@@ -31,8 +18,14 @@ const columns = [
     },
 ];
 
-
 const UploadGrid = props => {
+    const { items } = props;
+
+    const data = items.map((item, index) => ({
+        key: index,
+        fileName: item.name,
+    }));
+
     const cols = [
         ...columns,
         {
